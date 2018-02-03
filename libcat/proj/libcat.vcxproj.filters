@@ -187,6 +187,15 @@
     <ClInclude Include="..\include\cat_data_copyable.h">
       <Filter>libcat\data</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\cat_data_map.h">
+      <Filter>libcat\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\cat_data_serialize.h">
+      <Filter>libcat\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\cat_data_byteorder.h">
+      <Filter>libcat\data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\cat_gfx_renderer.cpp">
@@ -290,6 +299,12 @@
     </ClCompile>
     <ClCompile Include="..\src\cat_sound_player.cpp">
       <Filter>libcat\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\cat_data_map.cpp">
+      <Filter>libcat\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\cat_data_serialize.cpp">
+      <Filter>libcat\data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

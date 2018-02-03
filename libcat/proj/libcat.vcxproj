@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\cat_data_buffer.cpp" />
+    <ClCompile Include="..\src\cat_data_map.cpp" />
+    <ClCompile Include="..\src\cat_data_serialize.cpp" />
     <ClCompile Include="..\src\cat_gfx_fbo.cpp" />
     <ClCompile Include="..\src\cat_kernel.cpp" />
     <ClCompile Include="..\src\cat_net_http.cpp" />
@@ -55,8 +57,11 @@
     <ClCompile Include="..\src\cat_util_string.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\cat_data_byteorder.h" />
     <ClInclude Include="..\include\cat_data_copyable.h" />
     <ClInclude Include="..\include\cat_data_event.h" />
+    <ClInclude Include="..\include\cat_data_map.h" />
+    <ClInclude Include="..\include\cat_data_serialize.h" />
     <ClInclude Include="..\include\cat_gfx_opengl.h" />
     <ClInclude Include="..\include\cat_data_buffer.h" />
     <ClInclude Include="..\include\cat_data_emitter.h" />
