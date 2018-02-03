@@ -16,12 +16,41 @@ BootApp::~BootApp() {
 // ----------------------------------------------------------------------------
 bool BootApp::cb_startup(Timestamp now) {
     Logger::d("App", "cb_startup");
-    kernel()->vfs()->write("/doc/test.txt", Buffer("test"));
 
-    Buffer b;
-    if (kernel()->vfs()->read("/doc/test.txt", &b)) {
-        Logger::d("App", "read: %s", b.ptr());
+    // Simple file i/o
+    Buffer file_buffer;
+    kernel()->vfs()->write("/doc/test.txt", Buffer("test"));
+    if (kernel()->vfs()->read("/doc/test.txt", &file_buffer)) {
+        Logger::d("App", "read: %s", file_buffer.ptr());
     }
+
+    // Preference
+    DataMap configuration = {
+        "test", 123,
+        "nested", {
+            "foo", "Hello World"
+        },
+    };
+    // add more entries
+    configuration["foo"] = 1234;
+    configuration["bar"]["dummy"] = "4567";
+    Logger::d("App", "configuration[test]: %d", configuration["test"].get_int());
+    Logger::d("App", "configuration[nested][foo]: %s", configuration["nested"]["foo"].get_cstring());
+
+    // save to file
+    Buffer buffer;
+    if (configuration.save(&buffer, 1024*1024)) {
+        kernel()->vfs()->write("/doc/pref.dat", buffer);
+    }
+    // load it back
+    Buffer buffer2;
+    if (kernel()->vfs()->read("/doc/pref.dat", &buffer2)) {
+        DataMap map;
+        map.load(buffer2);
+        Logger::d("App", "map2[test]: %d", map["test"].get_int());
+        Logger::d("App", "map2[nested][foo]: %s", map["nested"]["foo"].get_cstring());
+    }
+
     return true;
 }
 // cb_resume is called when the program has resumed

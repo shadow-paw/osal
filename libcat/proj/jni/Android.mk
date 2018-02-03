@@ -11,6 +11,8 @@ LOCAL_CPPFLAGS  :=-std=c++14 -frtti -fexceptions
 LOCAL_SRC_FILES := \
                 ../../src/cat_kernel.cpp \
                 ../../src/cat_data_buffer.cpp \
+                ../../src/cat_data_serialize.cpp \
+                ../../src/cat_data_map.cpp \
                 ../../src/cat_util_jni.cpp \
                 ../../src/cat_util_log.cpp \
                 ../../src/cat_util_string.cpp \

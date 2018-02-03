@@ -6,6 +6,7 @@
 #include "cat_kernel.h"
 #include "cat_application.h"
 #include "cat_data_buffer.h"
+#include "cat_data_map.h"
 #include "cat_data_observable.h"
 #include "cat_data_emitter.h"
 #include "cat_data_uniqueid.h"
